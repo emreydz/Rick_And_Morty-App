@@ -3,10 +3,12 @@ import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rick_and_morty/screen/Character/character_details.dart';
 
-class GlassmorphicStatus extends StatelessWidget {
-  const GlassmorphicStatus({
+class GlassmorphicGender extends StatelessWidget {
+  final String text;
+  const GlassmorphicGender({
     Key? key,
     required this.widget,
+    required this.text,
   }) : super(key: key);
 
   final CharacterDetails widget;
@@ -41,7 +43,7 @@ class GlassmorphicStatus extends StatelessWidget {
             Color((0xFFFFFFFF)).withOpacity(0.5),
           ],
         ),
-        child: Text('Status: ${widget.status}',
+        child: Text('Gender: ${text}',
             textAlign: TextAlign.center,
             style: GoogleFonts.shadowsIntoLight(
                 fontSize: 28,

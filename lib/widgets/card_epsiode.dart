@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rick_and_morty/screen/Character/character_details.dart';
+import 'package:rick_and_morty/screen/episode/episode_detail.dart';
 
-class GlassmorphicName extends StatelessWidget {
-  const GlassmorphicName({required this.widget});
+class Cardepsiode extends StatelessWidget {
+  final String text;
+  const Cardepsiode({
+    Key? key,
+    required this.widget,
+    required this.text,
+  }) : super(key: key);
 
-  final CharacterDetails widget;
+  final episodeDetail widget;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +43,7 @@ class GlassmorphicName extends StatelessWidget {
             Color((0xFFFFFFFF)).withOpacity(0.5),
           ],
         ),
-        child: Text('Name: ${widget.name}',
+        child: Text(text,
             textAlign: TextAlign.center,
             style: GoogleFonts.shadowsIntoLight(
                 fontSize: 28,

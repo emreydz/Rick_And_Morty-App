@@ -4,6 +4,7 @@ import 'package:rick_and_morty/providers/theme_data.dart';
 import 'package:rick_and_morty/screen/Character/character_page.dart';
 import 'package:rick_and_morty/screen/episode/episode_page.dart';
 import 'package:rick_and_morty/screen/location/location.dart';
+import 'package:rick_and_morty/widgets/search_textfield.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

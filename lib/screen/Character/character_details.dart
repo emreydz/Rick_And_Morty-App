@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'package:rick_and_morty/model/character_model.dart';
-import 'package:rick_and_morty/widgets/glassmorphic_name.dart';
-import 'package:rick_and_morty/widgets/glassmorphic_gender.dart';
-import 'package:rick_and_morty/widgets/glassmorphic_species.dart';
-import 'package:rick_and_morty/widgets/glassmorphic_status.dart';
+import 'package:rick_and_morty/widgets/card_character.dart';
 
 class CharacterDetails extends StatefulWidget {
   final int id;
@@ -72,10 +69,22 @@ class _CharacterDetailsState extends State<CharacterDetails> {
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(40),
                       child: Image.network('${widget.img}', fit: BoxFit.fill))),
-              GlassmorphicName(widget: widget),
-              GlassmorphicGender(widget: widget),
-              GlassmorphicSpecies(widget: widget),
-              GlassmorphicStatus(widget: widget),
+              GlassmorphicGender(
+                widget: widget,
+                text: widget.name,
+              ),
+              GlassmorphicGender(
+                widget: widget,
+                text: widget.gender,
+              ),
+              GlassmorphicGender(
+                widget: widget,
+                text: widget.species,
+              ),
+              GlassmorphicGender(
+                widget: widget,
+                text: widget.status,
+              ),
             ],
           ),
         ),

@@ -1,5 +1,3 @@
-import 'package:rick_and_morty/model/character_model.dart';
-
 class Location {
   int? id;
   String? name;

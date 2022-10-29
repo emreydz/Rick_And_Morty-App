@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'package:rick_and_morty/model/character_model.dart';
 import 'package:rick_and_morty/model/location_model.dart';
 import 'package:rick_and_morty/screen/location/location_details.dart';
 
@@ -15,6 +16,7 @@ class location extends StatefulWidget {
 }
 
 class _locationState extends State<location> {
+  List<Character> characters = <Character>[];
   List<Location> location = <Location>[];
   ScrollController _scrollController = ScrollController();
   int pageNumber = 1;
@@ -43,9 +45,34 @@ class _locationState extends State<location> {
     });
   }
 
+  void getCharacters() async {
+    Response response = await http.get(Uri.parse(
+        'https://rickandmortyapi.com/api/character?page=$pageNumber'));
+
+    Map<String, dynamic> map = await jsonDecode(response.body);
+    List<dynamic> data = map['results'];
+    print(data);
+
+    setState(() {
+      pageNumber++;
+      for (var i = 0; i < data.length; i++) {
+        Character char = Character();
+        char.id = data[i]['id'];
+        char.name = data[i]['name'];
+        char.img = data[i]['image'];
+        char.status = data[i]['status'];
+        char.gender = data[i]['gender'];
+        char.species = data[i]['species'];
+        loading = true;
+        characters.add(char);
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
+    getCharacters();
     getlocation();
     _scrollController.addListener(() {
       if (_scrollController.position.pixels >=
@@ -108,6 +135,7 @@ class _locationState extends State<location> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (_) => locationDetails(
+                                            characters: [],
                                             id: location[index].id!,
                                             type: location[index].type!,
                                             dimension:
