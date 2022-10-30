@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import 'package:rick_and_morty/constants/app_color.dart';
+import 'package:rick_and_morty/constants/app_text.dart';
+import 'package:rick_and_morty/constants/style.dart';
 import 'package:rick_and_morty/screen/Character/character_details.dart';
 
-class GlassmorphicGender extends StatelessWidget {
+class cardcharacter extends StatelessWidget {
   final String text;
-  const GlassmorphicGender({
+  const cardcharacter({
     Key? key,
     required this.widget,
     required this.text,
@@ -28,8 +31,8 @@ class GlassmorphicGender extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFFffffff).withOpacity(0.1),
-              Color(0xFFFFFFFF).withOpacity(0.05),
+              appColor.gradiant01,
+              appColor.gradiant005
             ],
             stops: [
               0.1,
@@ -38,17 +41,10 @@ class GlassmorphicGender extends StatelessWidget {
         borderGradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            Color(0xFFffffff).withOpacity(0.5),
-            Color((0xFFFFFFFF)).withOpacity(0.5),
-          ],
+          colors: [appColor.gradiant05, appColor.gradiant05FF],
         ),
-        child: Text('Gender: ${text}',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.shadowsIntoLight(
-                fontSize: 28,
-                fontWeight: FontWeight.w500,
-                color: Colors.black)),
+        child: Text('${appText.Gender}: ${text}',
+            textAlign: TextAlign.center, style: googlefonts28()),
       ),
     );
   }

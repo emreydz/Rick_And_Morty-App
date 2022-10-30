@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'package:rick_and_morty/constants/app_color.dart';
+import 'package:rick_and_morty/constants/app_image.dart';
+
+import 'package:rick_and_morty/constants/style.dart';
 import 'package:rick_and_morty/model/character_model.dart';
 import 'package:rick_and_morty/model/location_model.dart';
 import 'package:rick_and_morty/screen/location/location_details.dart';
@@ -93,9 +97,7 @@ class _locationState extends State<location> {
   Widget build(BuildContext context) {
     return loading == false
         ? Center(
-            child: SpinKitChasingDots(
-              color: Colors.green.shade600,
-            ),
+            child: SpinKitChasingDots(color: appColor.green600),
           )
         : Scaffold(
             body: Container(
@@ -146,14 +148,11 @@ class _locationState extends State<location> {
                             leading: SizedBox(
                               height: 60,
                               width: 60,
-                              child: Image.asset("assets/characters.png"),
+                              child: Image.asset(app_images.character),
                             ),
                             title: Text(
                               "${location[index].name!}",
-                              style: TextStyle(
-                                  fontFamily: 'RickandMorty',
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold),
+                              style: textstyle26(),
                             ),
                             trailing: Icon(Icons.arrow_forward_ios_sharp),
                           ),

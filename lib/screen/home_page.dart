@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rick_and_morty/constants/app_image.dart';
 import 'package:rick_and_morty/providers/theme_data.dart';
 import 'package:rick_and_morty/screen/Character/character_page.dart';
 import 'package:rick_and_morty/screen/episode/episode_page.dart';
 import 'package:rick_and_morty/screen/location/location.dart';
-import 'package:rick_and_morty/widgets/search_textfield.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         centerTitle: true,
         title: Center(
-          child: Image.asset('assets/logo.png', height: 70),
+          child: Image.asset(app_images.logo, height: 70),
         ),
         elevation: 2,
         actions: [

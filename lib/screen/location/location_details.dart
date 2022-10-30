@@ -1,10 +1,11 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
+import 'package:rick_and_morty/constants/app_color.dart';
+import 'package:rick_and_morty/constants/app_image.dart';
+import 'package:rick_and_morty/constants/app_text.dart';
+import 'package:rick_and_morty/constants/style.dart';
 import 'package:rick_and_morty/model/character_model.dart';
 import 'package:rick_and_morty/model/location_model.dart';
 import 'package:rick_and_morty/widgets/card_location.dart';
@@ -59,18 +60,8 @@ class _locationDetailsState extends State<locationDetails> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
-          "LOCATİONS",
-          style: GoogleFonts.shadowsIntoLight(
-              fontSize: 25,
-              fontWeight: FontWeight.w500,
-              shadows: [
-                const Shadow(
-                  blurRadius: 3,
-                )
-              ]),
-        ),
-        backgroundColor: Colors.transparent,
+        title: Text(appText.location, style: googlefonts()),
+        backgroundColor: appColor.transparent,
         elevation: 0,
       ),
       body: SafeArea(
@@ -83,14 +74,17 @@ class _locationDetailsState extends State<locationDetails> {
                 height: 250,
                 width: 250,
                 child: Image.asset(
-                  "assets/locations.png",
+                  app_images.fotolocation,
                   fit: BoxFit.cover,
                 ),
               ),
-              Carddetail(widget: widget, text: "Name: ${widget.name}"),
-              Carddetail(widget: widget, text: "Type: ${widget.type}"),
-              Carddetail(
-                  widget: widget, text: "Dimension: ${widget.dimension}"),
+              Cardlocation(
+                  widget: widget, text: "${appText.Name}: ${widget.name}"),
+              Cardlocation(
+                  widget: widget, text: "${appText.Type}: ${widget.type}"),
+              Cardlocation(
+                  widget: widget,
+                  text: "${appText.Dimension}: ${widget.dimension}"),
             ],
           ),
         ),

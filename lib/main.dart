@@ -1,6 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rick_and_morty/constants/app_color.dart';
+import 'package:rick_and_morty/constants/app_image.dart';
 import 'package:rick_and_morty/providers/theme_data.dart';
 import 'package:rick_and_morty/screen/home_page.dart';
 
@@ -21,9 +23,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: Provider.of<ThemeColorData>(context).themeColor,
       home: AnimatedSplashScreen(
-        backgroundColor: Colors.transparent,
+        backgroundColor: appColor.transparent,
         duration: 3000,
-        splash: 'assets/splashlogo.gif',
+        splash: app_images.splash,
         splashIconSize: double.infinity,
         nextScreen: HomePage(),
         // splashTransition: SplashTransition.slideTransition,

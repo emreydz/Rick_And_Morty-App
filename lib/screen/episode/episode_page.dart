@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'package:rick_and_morty/constants/app_color.dart';
+import 'package:rick_and_morty/constants/style.dart';
 import 'package:rick_and_morty/model/episode_model.dart';
 import 'package:rick_and_morty/screen/episode/episode_detail.dart';
 
@@ -67,7 +69,7 @@ class _episodePageState extends State<episodePage> {
     return loading == false
         ? Center(
             child: SpinKitChasingDots(
-              color: Colors.green.shade600,
+              color: appColor.green600,
             ),
           )
         : Scaffold(
@@ -103,32 +105,19 @@ class _episodePageState extends State<episodePage> {
                                   MaterialPageRoute(
                                       builder: (_) => episodeDetail(
                                             id: episode[index].id!,
-                                            episode: episode[index].episode!,
-                                            air_date: episode[index].air_date!,
-                                            name: episode[index].name!,
                                           )));
                             },
                             leading: Text(
                               "${episode[index].episode!}",
-                              style: TextStyle(
-                                  color: Colors.tealAccent,
-                                  fontFamily: 'RickandMorty',
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold),
+                              style: textstyle20(),
                             ),
                             title: Text(
                               "${episode[index].name!}",
-                              style: TextStyle(
-                                  fontFamily: 'RickandMorty',
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold),
+                              style: textstyle20(),
                             ),
                             subtitle: Text(
                               "${episode[index].air_date!}",
-                              style: TextStyle(
-                                  fontFamily: 'RickandMorty',
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
+                              style: textstyle20(),
                             ),
                             trailing: Icon(Icons.arrow_forward_ios_sharp),
                           ),

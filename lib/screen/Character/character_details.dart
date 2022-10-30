@@ -69,19 +69,19 @@ class _CharacterDetailsState extends State<CharacterDetails> {
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(40),
                       child: Image.network('${widget.img}', fit: BoxFit.fill))),
-              GlassmorphicGender(
+              cardcharacter(
                 widget: widget,
                 text: widget.name,
               ),
-              GlassmorphicGender(
+              cardcharacter(
                 widget: widget,
                 text: widget.gender,
               ),
-              GlassmorphicGender(
+              cardcharacter(
                 widget: widget,
                 text: widget.species,
               ),
-              GlassmorphicGender(
+              cardcharacter(
                 widget: widget,
                 text: widget.status,
               ),

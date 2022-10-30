@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
+import 'package:rick_and_morty/constants/app_color.dart';
+import 'package:rick_and_morty/constants/style.dart';
 import 'package:rick_and_morty/model/character_model.dart';
 import 'package:rick_and_morty/screen/Character/character_details.dart';
 
@@ -69,7 +69,7 @@ class _CharacterPageState extends State<CharacterPage> {
     return loading == false
         ? Center(
             child: SpinKitChasingDots(
-              color: Colors.green.shade600,
+              color: appColor.green600,
             ),
           )
         : Scaffold(
@@ -120,7 +120,7 @@ class _CharacterPageState extends State<CharacterPage> {
                               alignment: Alignment.bottomCenter,
                               child: Container(
                                 decoration: BoxDecoration(
-                                    color: HexColor('#3bd1c0'),
+                                    color: appColor.hexColor,
                                     borderRadius: const BorderRadius.vertical(
                                         bottom: Radius.circular(20),
                                         top: Radius.circular(20))),
@@ -133,14 +133,7 @@ class _CharacterPageState extends State<CharacterPage> {
                                     (characters[index].name!),
                                     maxLines: 1,
                                     textAlign: TextAlign.center,
-                                    style: GoogleFonts.shadowsIntoLight(
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.w500,
-                                        shadows: [
-                                          const Shadow(
-                                            blurRadius: 3,
-                                          )
-                                        ]),
+                                    style: googlefonts(),
                                   ),
                                 ),
                               ),
